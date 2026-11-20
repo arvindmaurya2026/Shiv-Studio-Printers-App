@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@media print {
+  /* Hide all interactive app layout, sidebar, headers, footers and lists */
+  aside,
+  header,
+  footer,
+  nav,
+  button,
+  #desktop-sidebar,
+  #app-top-header,
+  #invoice-control-bar,
+  #invoice-view-control-bar,
+  #mobile-sidebar-drawer {
+    display: none !important;
+  }
+
+  /* Reset outer container styling to allow natural document flow */
+  html, body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 100% !important;
+    font-family: sans-serif !important;
+  }
+
+  #app-root-container {
+    display: block !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #app-main-content-scroll {
+    overflow: visible !important;
+    position: static !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+
+  /* Make sure the invoice overlays are not rendered as standard interactive modals */
+  #invoice-overlay,
+  #invoice-view-overlay {
+    position: static !important;
+    display: block !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  /* Standardize A4 document sizing and layout */
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  .print-invoice-target {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+    display: block !important;
+  }
+
+  /* Force clean black text contrast for printing */
+  h1, h2, h3, h4, th, td, strong, span, p {
+    color: #000000 !important;
+  }
+
+  /* Prevent page-breaks in table rows and images */
+  tr, img, p {
+    page-break-inside: avoid;
+  }
+}
